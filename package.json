@@ -1,0 +1,35 @@
+{
+  "name": "react-native-fabric-twitterkit",
+  "version": "0.2.2",
+  "description": "A React Native library for Fabric, TwitterKit",
+  "main": "index",
+  "scripts": {
+    "test": "flow"
+  },
+  "keywords": [
+    "react-native",
+    "react-component",
+    "react-native-component",
+    "react",
+    "mobile",
+    "ios",
+    "android",
+    "crashlytics",
+    "fabric",
+    "answers",
+    "twitter"
+  ],
+  "author": {
+    "name": "Trevor Porter",
+    "email": "trkporter@ucdavis.edu"
+  },
+  "homepage": "https://github.com/tkporter/react-native-fabric-twitterkit",
+  "bugs": {
+    "url": "https://github.com/tkporter/react-native-fabric-twitterkit/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tkporter/react-native-fabric-twitterkit.git"
+  },
+  "license": "MIT"
+}
