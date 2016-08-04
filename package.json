@@ -1,11 +1,69 @@
 {
-  "name": "react-native-fabric-twitterkit",
-  "version": "0.2.2",
-  "description": "A React Native library for Fabric, TwitterKit",
-  "main": "index",
-  "scripts": {
-    "test": "flow"
+  "_args": [
+    [
+      {
+        "hosted": {
+          "directUrl": "https://raw.githubusercontent.com/tkporter/react-native-fabric-twitterkit/master/package.json",
+          "gitUrl": "git://github.com/tkporter/react-native-fabric-twitterkit.git",
+          "httpsUrl": "git+https://github.com/tkporter/react-native-fabric-twitterkit.git",
+          "shortcut": "github:tkporter/react-native-fabric-twitterkit",
+          "ssh": "git@github.com:tkporter/react-native-fabric-twitterkit.git",
+          "sshUrl": "git+ssh://git@github.com/tkporter/react-native-fabric-twitterkit.git",
+          "type": "github"
+        },
+        "name": null,
+        "raw": "https://github.com/tkporter/react-native-fabric-twitterkit.git",
+        "rawSpec": "https://github.com/tkporter/react-native-fabric-twitterkit.git",
+        "scope": null,
+        "spec": "git+https://github.com/tkporter/react-native-fabric-twitterkit.git",
+        "type": "hosted"
+      },
+      "/Users/typorter/flare-one/flare"
+    ]
+  ],
+  "_from": "git+https://github.com/tkporter/react-native-fabric-twitterkit.git",
+  "_id": "react-native-fabric-twitterkit@0.2.2",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/react-native-fabric-twitterkit",
+  "_phantomChildren": {},
+  "_requested": {
+    "hosted": {
+      "directUrl": "https://raw.githubusercontent.com/tkporter/react-native-fabric-twitterkit/master/package.json",
+      "gitUrl": "git://github.com/tkporter/react-native-fabric-twitterkit.git",
+      "httpsUrl": "git+https://github.com/tkporter/react-native-fabric-twitterkit.git",
+      "shortcut": "github:tkporter/react-native-fabric-twitterkit",
+      "ssh": "git@github.com:tkporter/react-native-fabric-twitterkit.git",
+      "sshUrl": "git+ssh://git@github.com/tkporter/react-native-fabric-twitterkit.git",
+      "type": "github"
+    },
+    "name": null,
+    "raw": "https://github.com/tkporter/react-native-fabric-twitterkit.git",
+    "rawSpec": "https://github.com/tkporter/react-native-fabric-twitterkit.git",
+    "scope": null,
+    "spec": "git+https://github.com/tkporter/react-native-fabric-twitterkit.git",
+    "type": "hosted"
   },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "git+https://github.com/tkporter/react-native-fabric-twitterkit.git#52231414e63d9cc2f1716e09ee3572dfd3f74f4f",
+  "_shasum": "1569d8a6e31f06587a7ccba7f3874521fc4ee5d3",
+  "_shrinkwrap": null,
+  "_spec": "https://github.com/tkporter/react-native-fabric-twitterkit.git",
+  "_where": "/Users/typorter/flare-one/flare",
+  "author": {
+    "email": "trkporter@ucdavis.edu",
+    "name": "Trevor Porter"
+  },
+  "bugs": {
+    "url": "https://github.com/tkporter/react-native-fabric-twitterkit/issues"
+  },
+  "dependencies": {},
+  "description": "A React Native library for Fabric, TwitterKit",
+  "devDependencies": {},
+  "gitHead": "52231414e63d9cc2f1716e09ee3572dfd3f74f4f",
+  "homepage": "https://github.com/tkporter/react-native-fabric-twitterkit",
   "keywords": [
     "react-native",
     "react-component",
@@ -19,17 +77,18 @@
     "answers",
     "twitter"
   ],
-  "author": {
-    "name": "Trevor Porter",
-    "email": "trkporter@ucdavis.edu"
-  },
-  "homepage": "https://github.com/tkporter/react-native-fabric-twitterkit",
-  "bugs": {
-    "url": "https://github.com/tkporter/react-native-fabric-twitterkit/issues"
-  },
+  "license": "MIT",
+  "main": "index",
+  "name": "react-native-fabric-twitterkit",
+  "optionalDependencies": {},
+  "readme": "# react-native-fabric-twitterkit\nReact Native Fabric Twitter-kit support\n",
+  "readmeFilename": "README.md",
   "repository": {
     "type": "git",
     "url": "git://github.com/tkporter/react-native-fabric-twitterkit.git"
   },
-  "license": "MIT"
+  "scripts": {
+    "test": "flow"
+  },
+  "version": "0.2.2"
 }

@@ -10,6 +10,7 @@
 #import "RCTBridgeModule.h"
 #import "RCTEventDispatcher.h"
 #import "RCTBridge.h"
+//#import <Crashlytics/Crashlytics.h>
 #import <TwitterKit/TwitterKit.h>
 
 @implementation FabricTwitterKit
@@ -83,22 +84,31 @@ RCT_EXPORT_METHOD(fetchProfile:(RCTResponseSenderBlock)callback)
 }
 
 RCT_EXPORT_METHOD(composeTweet:(NSDictionary *)options :(RCTResponseSenderBlock)callback) {
-    NSLog(@"woohoo");
-    /*// Objective-C
-     TWTRComposer *composer = [[TWTRComposer alloc] init];
-     
-     [composer setText:@"just setting up my Fabric"];
-     [composer setImage:[UIImage imageNamed:@"fabric"]];
-     
-     // Called from a UIViewController
-     [composer showFromViewController:self completion:^(TWTRComposerResult result) {
-     if (result == TWTRComposerResultCancelled) {
-     NSLog(@"Tweet composition cancelled");
-     }
-     else {
-     NSLog(@"Sending Tweet!");
-     }
-     }];*/
+    
+    NSString *body = options[@"body"];
+    
+    TWTRComposer *composer = [[TWTRComposer alloc] init];
+    
+    if (body) {
+        [composer setText:body];
+    }
+    
+    UIViewController *rootView = [UIApplication sharedApplication].keyWindow.rootViewController;
+    [composer showFromViewController:rootView completion:^(TWTRComposerResult result) {
+    
+        bool in;
+        bool completed = NO, cancelled = NO;
+        
+        if (result == TWTRComposerResultCancelled) {
+            cancelled = YES;
+        }
+        else {
+            completed = YES;
+        }
+        
+        callback(@[@(completed), @(cancelled)]);
+        
+    }];
 }
 
 RCT_EXPORT_METHOD(logOut)

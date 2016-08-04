@@ -1,6 +1,5 @@
-/**
- * @providesModule Fabric
- */
 'use strict';
 
-module.exports = require('./Twitter');
+import { NativeModules } from 'react-native'
+
+export default NativeModules.FabricTwitterKit;
