@@ -95,9 +95,8 @@ RCT_EXPORT_METHOD(composeTweet:(NSDictionary *)options :(RCTResponseSenderBlock)
     
     UIViewController *rootView = [UIApplication sharedApplication].keyWindow.rootViewController;
     [composer showFromViewController:rootView completion:^(TWTRComposerResult result) {
-    
-        bool in;
-        bool completed = NO, cancelled = NO;
+        
+        bool completed = NO, cancelled = NO, error = NO;
         
         if (result == TWTRComposerResultCancelled) {
             cancelled = YES;
@@ -106,7 +105,7 @@ RCT_EXPORT_METHOD(composeTweet:(NSDictionary *)options :(RCTResponseSenderBlock)
             completed = YES;
         }
         
-        callback(@[@(completed), @(cancelled)]);
+        callback(@[@(completed), @(cancelled), @(error)]);
         
     }];
 }
