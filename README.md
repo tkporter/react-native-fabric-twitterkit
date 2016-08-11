@@ -1,6 +1,8 @@
 # react-native-fabric-twitterkit
 React Native Fabric Twitter-kit support for iOS and Android
 
+Use [react-native-fabric](https://github.com/corymsmith/react-native-fabric) for Answers and Crashlytics
+
 # Installation:
 
 ```
