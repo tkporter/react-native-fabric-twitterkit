@@ -52,10 +52,10 @@ public class FabricTwitterKitModule extends ReactContextBaseJavaModule implement
             } else if (resultCode == Activity.RESULT_CANCELED) {
                 sendCallback(false, true, false);
             }
-            if (loginButton != null) {
-                loginButton.onActivityResult(requestCode, resultCode, data);
-                loginButton = null;
-            }
+        }
+        if (loginButton != null) {
+            loginButton.onActivityResult(requestCode, resultCode, data);
+            loginButton = null;
         }
     }
 
@@ -87,7 +87,7 @@ public class FabricTwitterKitModule extends ReactContextBaseJavaModule implement
     @ReactMethod
     public void login(final Callback callback) {
 
-        loginButton = new TwitterLoginButton(reactContext);
+        loginButton = new TwitterLoginButton(getCurrentActivity());
         loginButton.setCallback(new com.twitter.sdk.android.core.Callback<TwitterSession>() {
             @Override
             public void success(Result<TwitterSession> sessionResult) {
