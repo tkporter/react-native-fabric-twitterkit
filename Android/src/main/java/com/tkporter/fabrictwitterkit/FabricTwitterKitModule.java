@@ -21,8 +21,8 @@ import com.twitter.sdk.android.core.TwitterSession;
 import com.twitter.sdk.android.core.identity.TwitterLoginButton;
 import com.twitter.sdk.android.core.TwitterApiClient;
 import com.twitter.sdk.android.core.models.User;
-import retrofit.http.GET;
-import retrofit.http.Query;
+import retrofit2.http.GET;
+import retrofit2.http.Query;
 
 
 public class FabricTwitterKitModule extends ReactContextBaseJavaModule implements ActivityEventListener {
