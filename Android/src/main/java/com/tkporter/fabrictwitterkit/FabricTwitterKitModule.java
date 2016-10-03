@@ -44,6 +44,9 @@ public class FabricTwitterKitModule extends ReactContextBaseJavaModule implement
         return "FabricTwitterKit";
     }
 
+    public void onActivityResult(Activity activity, int requestCode, int resultCode, Intent data) {
+        onActivityResult(requestCode, resultCode, data);
+    }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_CODE) {
@@ -57,6 +60,9 @@ public class FabricTwitterKitModule extends ReactContextBaseJavaModule implement
             loginButton.onActivityResult(requestCode, resultCode, data);
             loginButton = null;
         }
+    }
+
+    public void onNewIntent(Intent intent) {
     }
 
     public void sendCallback(Boolean completed, Boolean cancelled, Boolean error) {
