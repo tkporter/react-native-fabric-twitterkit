@@ -13,6 +13,9 @@ module.exports = {
   fetchProfile: function (cb) {
     SMXTwitter.fetchProfile(cb);
   },
+  fetchTweet: function (options, cb) {
+    SMXTwitter.fetchTweet(options, cb);
+  },
   logOut: function () {
     SMXTwitter.logOut();
   },

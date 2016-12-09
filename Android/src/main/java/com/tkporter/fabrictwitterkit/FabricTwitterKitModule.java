@@ -14,13 +14,16 @@ import com.facebook.react.bridge.WritableNativeMap;
 import com.google.gson.Gson;
 
 import com.twitter.sdk.android.tweetcomposer.TweetComposer;
+import com.twitter.sdk.android.core.services.StatusesService;
 import com.twitter.sdk.android.core.Result;
 import com.twitter.sdk.android.core.TwitterCore;
 import com.twitter.sdk.android.core.TwitterException;
 import com.twitter.sdk.android.core.TwitterSession;
 import com.twitter.sdk.android.core.identity.TwitterLoginButton;
 import com.twitter.sdk.android.core.TwitterApiClient;
+import com.twitter.sdk.android.core.models.Tweet;
 import com.twitter.sdk.android.core.models.User;
+
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
@@ -124,8 +127,47 @@ public class FabricTwitterKitModule extends ReactContextBaseJavaModule implement
                 @Override
                 public void success(Result<User> result) {
                     Gson gson = new Gson();
-                    WritableMap map = gson.fromJson(gson.toJson(result), WritableMap.class);
-                    callback.invoke(null, map);
+                    try {
+                        WritableMap map = (WritableMap) FabricTwitterKitUtils.jsonToWritableMap(gson.toJson(result.data));
+                        callback.invoke(null, map);
+                    } catch (Exception exception) {
+                        callback.invoke(exception.getMessage());
+                    }
+                }
+
+                @Override
+                public void failure(TwitterException exception) {
+                    exception.printStackTrace();
+                    TwitterCore.getInstance().getSessionManager().clearActiveSession();
+                    callback.invoke(exception.getMessage());
+                }
+            });
+        } catch (Exception ex) {
+            callback.invoke(ex.getMessage());
+        }
+    }
+
+    @ReactMethod
+    public void fetchTweet(ReadableMap options, final Callback callback) {
+
+        try {
+            ReactNativeFabricApiClient client = new ReactNativeFabricApiClient(TwitterCore.getInstance().getSessionManager().getActiveSession());
+            StatusesService statusesService = client.getStatusesService();
+
+            Long id = options.hasKey("id") ? new Long(options.getString("id")) : 0L;
+            Boolean trim_user = options.hasKey("trim_user") ? new Boolean(options.getString("trim_user")) : false;
+            Boolean include_my_retweet = options.hasKey("include_my_retweet") ? new Boolean(options.getString("include_my_retweet")) : false;
+
+            statusesService.show(id, trim_user, include_my_retweet, null, new com.twitter.sdk.android.core.Callback<Tweet>() {
+                @Override
+                public void success(Result<Tweet> result) {
+                    Gson gson = new Gson();
+                    try {
+                        WritableMap map = (WritableMap)FabricTwitterKitUtils.jsonToWritableMap(gson.toJson(result.data));
+                        callback.invoke(null, map);
+                    } catch (Exception exception) {
+                        callback.invoke(exception.getMessage());
+                    }
                 }
 
                 @Override
@@ -171,4 +213,3 @@ public class FabricTwitterKitModule extends ReactContextBaseJavaModule implement
     }
 
 }
-
