@@ -1,3 +1,7 @@
+// -------------------------------------------------------------------------------------------
+// Copyright (C) 2016 Sony Interactive Entertainment Inc.
+// Licensed under the MIT License. See the LICENSE file in the project root for license information.
+// --------------------------------------------------------------------------------------------
 package com.tkporter.fabrictwitterkit;
 
 import com.facebook.react.bridge.Arguments;

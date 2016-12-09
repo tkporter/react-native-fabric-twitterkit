@@ -5,6 +5,9 @@
 //  Created by Trevor Porter on 8/1/16.
 //  Copyright © 2016 Trevor Porter. All rights reserved.
 //
+//  Modifications:
+//  Copyright (C) 2016 Sony Interactive Entertainment Inc.
+//  Licensed under the MIT License. See the LICENSE file in the project root for license information.
 
 #import "FabricTwitterKit.h"
 #import "RCTBridgeModule.h"
