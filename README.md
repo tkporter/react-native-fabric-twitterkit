@@ -31,7 +31,7 @@ public class MainActivity extends ReactActivity {
 
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
-+ 		FabricTwitterKitPackage.getInstance().onActivityResult(requestCode, resultCode, data);
++ 		FabricTwitterKitPackage.getInstance().onActivityResult(this, requestCode, resultCode, data);
 	}
 
 	...
