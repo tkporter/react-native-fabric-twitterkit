@@ -10,9 +10,9 @@
 //  Licensed under the MIT License. See the LICENSE file in the project root for license information.
 
 #import "FabricTwitterKit.h"
-#import "RCTBridgeModule.h"
-#import "RCTEventDispatcher.h"
-#import "RCTBridge.h"
+#import <React/RCTBridgeModule.h>
+#import <React/RCTEventDispatcher.h>
+#import <React/RCTBridge.h>
 //#import <Crashlytics/Crashlytics.h>
 #import <TwitterKit/TwitterKit.h>
 
