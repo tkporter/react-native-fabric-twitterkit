@@ -29,6 +29,8 @@ import com.twitter.sdk.android.core.TwitterApiClient;
 import com.twitter.sdk.android.core.models.Tweet;
 import com.twitter.sdk.android.core.models.User;
 
+import retrofit2.Call;
+import retrofit2.Response;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
@@ -163,12 +165,12 @@ public class FabricTwitterKitModule extends ReactContextBaseJavaModule implement
             Boolean trim_user = options.hasKey("trim_user") ? new Boolean(options.getString("trim_user")) : false;
             Boolean include_my_retweet = options.hasKey("include_my_retweet") ? new Boolean(options.getString("include_my_retweet")) : false;
 
-            statusesService.show(id, trim_user, include_my_retweet, null, new com.twitter.sdk.android.core.Callback<Tweet>() {
+            statusesService.show(id, trim_user, include_my_retweet, null).enqueue(new retrofit2.Callback<Tweet>() {
                 @Override
-                public void success(Result<Tweet> result) {
+                public void onResponse(Call<Tweet> call, Response<Tweet> response) {
                     Gson gson = new Gson();
                     try {
-                        WritableMap map = (WritableMap)FabricTwitterKitUtils.jsonToWritableMap(gson.toJson(result.data));
+                        WritableMap map = (WritableMap)FabricTwitterKitUtils.jsonToWritableMap(gson.toJson(response.body()));
                         callback.invoke(null, map);
                     } catch (Exception exception) {
                         callback.invoke(exception.getMessage());
@@ -176,10 +178,10 @@ public class FabricTwitterKitModule extends ReactContextBaseJavaModule implement
                 }
 
                 @Override
-                public void failure(TwitterException exception) {
-                    exception.printStackTrace();
+                public void onFailure(Call<Tweet> call, Throwable t) {
+                    t.printStackTrace();
                     TwitterCore.getInstance().getSessionManager().clearActiveSession();
-                    callback.invoke(exception.getMessage());
+                    callback.invoke(t.getMessage());
                 }
             });
         } catch (Exception ex) {
