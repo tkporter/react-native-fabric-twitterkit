@@ -6,7 +6,7 @@
 //  Copyright © 2016 Trevor Porter. All rights reserved.
 //
 
-#import "RCTBridgeModule.h"
+#import <React/RCTBridgeModule.h>
 
 @interface FabricTwitterKit : NSObject <RCTBridgeModule> {
     RCTResponseSenderBlock _callback;
