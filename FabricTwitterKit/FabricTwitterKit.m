@@ -82,7 +82,9 @@ RCT_EXPORT_METHOD(fetchProfile:(RCTResponseSenderBlock)callback)
         }
 
     }
-
+    else {
+      callback(@[@"Session must not be null."]);
+    }
 
 }
 
@@ -137,6 +139,9 @@ RCT_EXPORT_METHOD(fetchTweet:(NSDictionary *)options :(RCTResponseSenderBlock)ca
             NSLog(@"Error: %@", clientError);
         }
 
+    }
+    else {
+      callback(@[@"Session must not be null."]);
     }
 
 }
