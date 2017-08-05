@@ -31,7 +31,7 @@ public class FabricTwitterKitPackage implements ReactPackage {
         return Arrays.<NativeModule>asList(twitterKitModule);
     }
 
-    @Override
+    // Deprecated RN 0.47
     public List<Class<? extends JavaScriptModule>> createJSModules() {
         return Collections.emptyList();
     }
