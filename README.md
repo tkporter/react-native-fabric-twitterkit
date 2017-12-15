@@ -16,6 +16,8 @@ Follow the official Fabric iOS instructions on [Fabric.io](https://docs.fabric.i
 
 ## Android
 
+Note: If using RN version < v0.47, use react-native-fabric-twitterkit <= v0.1.3
+
 Follow "Set Up Kit" from official Fabric Android docs at [Fabric.io](https://docs.fabric.io/android/twitter/compose-tweets.html)
 
 Navigate to your `MainActivity.java` somewhere in `MyApp/android/app/src/main/java/...../MainActivity.java`
