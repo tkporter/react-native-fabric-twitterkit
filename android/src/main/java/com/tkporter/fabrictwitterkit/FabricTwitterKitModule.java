@@ -192,7 +192,7 @@ public class FabricTwitterKitModule extends ReactContextBaseJavaModule implement
 
     @ReactMethod
     public void logOut() {
-        TwitterCore.getInstance().logOut();
+        TwitterCore.getInstance().getSessionManager().clearActiveSession();
     }
 
     private boolean hasValidKey(String key, ReadableMap options) {
